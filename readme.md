@@ -1,0 +1,1 @@
+GUI for aoc solver, communicates with JSON
