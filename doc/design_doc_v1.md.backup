@@ -29,7 +29,7 @@ The details of the project are expanded in following chapters, which tell how th
 
 Writing a full JSON schema is a wrong abstraction level for the scope of the project. Provided is a human-readable desciption of how the JSON should look like.
 
-stdin/out is cleared after each request/response.
+stdin/out shall be cleared after each request/response.
 
 ```
 {
