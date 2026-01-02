@@ -126,6 +126,34 @@ stdin/out is cleared after each request/response.
 
 ## 4. Requirements
 
+### 4.1 High-level functional requirements
+
+Priority:
+1 = not important 
+5 = most imprtant
+
+1. Priority 5: The app shall request capabilities from the external solver.
+2. Priority 5: The app shall let user to select the solutions to be run, based on available capabilities.
+3. Priority 5: The app shall display the results in a tabular format according to the UI wireframe.
+4. Priority 5: The app shall validate user inputs before sending requests to the solver
+5. Priority 4: The app shall show a status or progress indicator while the solver is running 
+6. Priority 3: The app shall handle and display error messages from the solver or communication failures
+7. Priority 2: The app shall have a gui parameter "repeats", which instructs the solver to run the solution n times.
+8. Priority 2: The app shall allow configuration of solver path via GUI.
+9. Priority 1: The the app shall allow the user to refresh available solver capabilities without restarting the application
+
+
+### 4.2 Technical requirements
+
+1. QT
+2. C++23
+3. Communication JSON via stdin/out
+4. Config file for path to solver.exe
+5. Abstract class in GUI to request solutions from so the implementation can be changed later
+6. Modular code separation
+7. Logging instead of std::print
+8. Git
+
 ## 5. References
 
 ## 6. Open issues
