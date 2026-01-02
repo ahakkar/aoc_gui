@@ -25,11 +25,37 @@ The details of the project are expanded in following chapters, which tell how th
 
 ## 2. Visuals
 
+### 2.1 GUI app wireframe
+
+![GUI app wireframe](UI_sketch.drawio.png)
+
+### 2.2 Data flow 
+
+Made with mermaid - https://mermaid.live/
+
+![Data flow](data_flow.png)
+
+sequenceDiagram
+    actor User
+    participant Gui
+    participant Solver
+
+Gui ->> +Solver: Request capabilities
+Solver -->> -Gui: Respond capabilities
+
+User ->> Gui: Select solutions 
+User ->> +Gui: Run selected
+
+Gui ->> +Solver: Request solutions
+Solver -->> -Gui: Respond solution
+
+Gui -->> -User: Display response
+
 ## 3. JSON specification
 
 Writing a full JSON schema is a wrong abstraction level for the scope of the project. Provided is a human-readable desciption of how the JSON should look like.
 
-stdin/out shall be cleared after each request/response.
+stdin/out is cleared after each request/response.
 
 ```
 {
@@ -93,8 +119,6 @@ stdin/out shall be cleared after each request/response.
     "encoding": "UTF-8"
   }
 }
-
-
 ```
 
 
