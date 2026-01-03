@@ -59,6 +59,8 @@ Writing a full JSON schema is a wrong abstraction level for the scope of the pro
 
 stdin/out is cleared after each request/response.
 
+elapsed unit is nanoseconds with Rust's Duration
+
 ```
 {
   "version": 1,
@@ -67,9 +69,24 @@ stdin/out is cleared after each request/response.
     "capabilities": {
       "request": {},
       "response": {
-        "years": [2023, 2024],
-        "days": [1, 2, 3, 4, 5, 6]
-        "parts": ["silver", "gold"]
+        "years": {
+          "2024": {
+            "1": ["silver", "gold"],
+            "2": ["silver", "gold"],
+            "3": ["silver", "gold"],
+            "4": ["silver", "gold"],
+            "5": ["silver", "gold"],
+            "6": ["silver", "gold"],
+           },
+          "2025": {
+            "1": ["silver", "gold"],
+            "2": ["silver", "gold"],
+            "3": ["silver", "gold"],
+            "4": ["silver", "gold"],
+            "5": ["silver", "gold"],
+            "6": ["silver", "gold"],
+          }
+        }
       }
     },
 
@@ -82,8 +99,7 @@ stdin/out is cleared after each request/response.
       },
       "response": {
         "result": "123456",
-        "elapsed": 42,
-        "elapsed_unit": "ms"
+        "elapsed": 42
       }
     },
 
@@ -97,14 +113,12 @@ stdin/out is cleared after each request/response.
             "part": "silver",
             "result": "123", 
             "elapsed": 10, 
-            "elapsed_unit": "us",
             "repeats": 100 
           },
           { "day": 1,
             "part": "gold",
             "result": "456",
             "elapsed": 12,
-            "elapsed_unit": "ms",
             "repeats": 100 }
         ]
       }
@@ -147,7 +161,7 @@ Priority:
 
 1. QT
 2. C++23
-3. Communication JSON via stdin/out
+3. Communication with JSON via stdin/out
 4. Config file for path to solver.exe
 5. Abstract class in GUI to request solutions from so the implementation can be changed later
 6. Modular code separation
